@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.example.xoxo.view.MatriceView
+    <com.example.xoxo.morpion.MatriceView
         android:id="@+id/matriceView2"
         android:layout_width="355dp"
         android:layout_height="573dp"
@@ -17,11 +17,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.36" />
 
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_width="248dp"
-        android:layout_height="6dp"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="347dp">
-
-    </androidx.gridlayout.widget.GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
