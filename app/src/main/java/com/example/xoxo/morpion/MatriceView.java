@@ -49,11 +49,25 @@ public class MatriceView extends View {
                         carre
                 );
 
+                int redim = 40;
+
                 if ( dataMatrice.getElementInData(x, y) != null ) {
                      if (dataMatrice.getElementInData(x, y) == 0) {
-                        System.out.println("OO an");
+                         canvas.drawOval(
+                                 (x * abscisse + marginx / 2) + redim,
+                                 (y * abscisse + marginy / 2) +redim,
+                                 ((x * abscisse) + abscisse + marginx / 2) - redim,
+                                 ((y * abscisse) + abscisse + marginy / 2) -redim,
+                                 carre
+                         );
                     } else if (dataMatrice.getElementInData(x, y) == 1) {
-                        System.out.println("XX an");
+                        canvas.drawRect(
+                                (x * abscisse + marginx / 2) + redim,
+                                (y * abscisse + marginy / 2) +redim,
+                                ((x * abscisse) + abscisse + marginx / 2) - redim,
+                                ((y * abscisse) + abscisse + marginy / 2) -redim,
+                                carre
+                        );
                     }
                 }
 
@@ -95,14 +109,13 @@ public class MatriceView extends View {
             int line = (int) ( touchY / ordonnee );
             line = Math.abs(line);
 
-            System.out.println(String.format("Width: %d --", abscisse ));
-            System.out.println(String.format("col: %d -- line: %d", col, line));
-            System.out.println(String.format("X: %d -- Y: %d", touchX, touchY));
-
             if (col < dim && line < dim ) {
-                dataMatrice.setData(col, line, ia ? 1 : 0);
-                ia = !ia;
-                invalidate();
+                if (dataMatrice.getElementInData(col, line) == null){
+                    dataMatrice.setData(col, line, ia ? 1 : 0);
+                    ia = !ia;
+                    invalidate();
+                }
+
             }
 
         }
