@@ -6,58 +6,61 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.MotionEvent;
 
 import androidx.annotation.Nullable;
 
 public class MatriceView extends View {
 
-    private int dim = 4;
-
-    private Integer[][] mat;
-
+    private final int dim = 4;
+    private MatriceData dataMatrice;
+    private boolean ia  = false;
 
     public MatriceView(Context context, @Nullable AttributeSet attrs) {
-
         super(context, attrs);
-        mat = new Integer[dim][dim];
+        dataMatrice = new MatriceData(dim);
     }
 
     public MatriceView(Context context) {
         super(context);
+
     }
 
 
     @Override
     protected void onDraw(Canvas canvas) {
-
-        int marginx = 20 ; // (int) 0.2 * getLayoutParams().width;
+        int marginx = 20; // (int) 0.2 * getLayoutParams().width;
         int marginy = (int) (0.2 * getLayoutParams().height);
-
-        System.out.println(marginy);
-
         super.onDraw(canvas);
         Paint carre = new Paint();
         carre.setStyle(Paint.Style.STROKE);
         carre.setColor(Color.BLACK);
-        // int height = getLayoutParams().height - marginy;
-        int width = getLayoutParams().width  - marginx;
-        int abscisse = (int)width/(dim);
-        //int ordonnee = (int)height/(dim);
+        int width = getLayoutParams().width - marginx;
+        int abscisse = (int) width / (dim);
 
-        for (int x = 0; x < dim ; x++){
-            for (int y = 0; y < dim ; y++){
-                new square();
-//                canvas.drawRect(
-//                         x*abscisse + marginx/2,
-//                         y*abscisse + marginy/2 ,
-//                         (x*abscisse) +abscisse + marginx/2,
-//                        (y*abscisse) +abscisse + marginy/2,
-//                        carre
-//                );
+        for (int x = 0; x < dim; x++) {
+            for (int y = 0; y < dim; y++) {
+                //dataMatrice.setData(x, y, null)
+                canvas.drawRect(
+                        x * abscisse + marginx / 2,
+                        y * abscisse + marginy / 2,
+                        (x * abscisse) + abscisse + marginx / 2,
+                        (y * abscisse) + abscisse + marginy / 2,
+                        carre
+                );
+
+                if ( dataMatrice.getElementInData(x, y) != null ) {
+                     if (dataMatrice.getElementInData(x, y) == 0) {
+                        System.out.println("OO an");
+                    } else if (dataMatrice.getElementInData(x, y) == 1) {
+                        System.out.println("XX an");
+                    }
+                }
+
+
 
             }
         }
-
 
 
         // stroke
@@ -69,18 +72,41 @@ public class MatriceView extends View {
     }
 
 
-    /*
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        touchX = (int)event.getX();
-        touchY = (int)event.getY();
-        if(event.getAction() == MotionEvent.ACTION_UP){
-            Coordonnee newCoordonnee = new Coordonnee(touchY-30, touchY+30, touchX+30, touchX-30);
-            Coordonnee.listCoordonne.add(newCoordonnee);
-        }
-        invalidate();
 
+        int marginx = 20; // (int) 0.2 * getLayoutParams().width;
+        int marginy = (int) (0.2 * getLayoutParams().height);
+
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+
+            int width = getLayoutParams().width - marginx;
+            int height = getLayoutParams().height - marginy;
+
+            int abscisse = (int) (width / dim);
+            int ordonnee = (int) (height / dim) ;
+
+            int touchX = (int) event.getX() ;
+            int touchY = (int) event.getY() ;
+
+            int col = (int) ( touchX / abscisse) ;
+            col = Math.abs(col) ;
+
+            int line = (int) ( touchY / ordonnee );
+            line = Math.abs(line);
+
+            System.out.println(String.format("Width: %d --", abscisse ));
+            System.out.println(String.format("col: %d -- line: %d", col, line));
+            System.out.println(String.format("X: %d -- Y: %d", touchX, touchY));
+
+            if (col < dim && line < dim ) {
+                dataMatrice.setData(col, line, ia ? 1 : 0);
+                ia = !ia;
+                invalidate();
+            }
+
+        }
         return true;
     }
-*/
+
 }
