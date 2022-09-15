@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 
 public class MatriceView extends View {
 
-    private final int dim = 3;
+    private int dim = 3;
     private MatriceData dataMatrice;
     private boolean ia  = false;
 
