@@ -1,5 +1,11 @@
 package com.example.xoxo.morpion;
 
+import android.content.Intent;
+
+import com.example.xoxo.MainActivity;
+import com.example.xoxo.WelcomeActivity;
+import com.example.xoxo.WinActivity;
+
 public class MatriceData {
     private int dimension;
     private Integer[][] listData;
@@ -19,6 +25,9 @@ public class MatriceData {
             /*
                 ATO DOLY NY ACTION atao satria kobo hoe naresy izy
              */
+                // REDIRECTION VERS WIN
+                //Intent intent = new Intent(MainActivity.this, WinActivity.class);
+                //startActivity(intent);
                 System.out.println("NARESY IZY EEE: " + String.valueOf(winner ));
                 return true;
             }

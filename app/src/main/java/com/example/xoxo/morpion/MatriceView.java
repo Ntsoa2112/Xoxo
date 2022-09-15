@@ -7,6 +7,10 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.MotionEvent;
+import android.content.Intent;
+
+import com.example.xoxo.MainActivity;
+import com.example.xoxo.WinActivity;
 
 import androidx.annotation.Nullable;
 
@@ -83,6 +87,13 @@ public class MatriceView extends View {
         if (!aona_aa && tapitra){
             System.out.println("TAPITRA AAA, MATCH NUL");
         }
+        /* REDIRECTION VERS WIN
+        else if(aona_aa){
+            Intent intent = new Intent(new MainActivity(), WinActivity.class);
+            startActivity(intent);
+        }
+         */
+
 
         // stroke
         /*
