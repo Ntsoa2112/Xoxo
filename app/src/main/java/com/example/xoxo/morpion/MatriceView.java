@@ -17,13 +17,13 @@ import androidx.annotation.Nullable;
 
 public class MatriceView extends View {
 
-    private final int dim = 3;
+    public static int dim = 3;
     private MatriceData dataMatrice;
     private boolean ia  = false;
 
     public MatriceView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        dataMatrice = new MatriceData(dim);
+        dataMatrice = new MatriceData(MatriceView.dim);
     }
 
     public MatriceView(Context context) {
@@ -41,7 +41,8 @@ public class MatriceView extends View {
         square.setStyle(Paint.Style.STROKE);
         square.setColor(Color.BLACK);
         int width = getLayoutParams().width - margin_x;
-        int abs = (int) width / (dim);
+        int abs = (int) width / (MatriceView.dim);
+        int dim = MatriceView.dim;
 
         // FANTARINA HOE TAPITRA NY LALAO
         // REHEFA TSS CASE LIBRE TSONY
@@ -112,7 +113,7 @@ public class MatriceView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
+        int dim = MatriceView.dim;
         int margin_x = (int) 0.2 * getLayoutParams().width;
         int margin_y = (int) (0.2 * getLayoutParams().height);
 

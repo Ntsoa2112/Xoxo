@@ -32,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
         String j2_score_string = Integer.toString(j2_score);
         TextView nb1 = (TextView) findViewById(R.id.editTextNumber);
         TextView nb2 = (TextView) findViewById(R.id.editTextNumber2);
-
+        TextView tv1 = (TextView) findViewById(R.id.textView8);
+        tv1.setText((CharSequence) j1_name);
+        TextView tv = (TextView)findViewById(R.id.textView9);
+        tv.setText((CharSequence) j2_name);
         nb1.setText((CharSequence) j1_score_string);
         nb2.setText((CharSequence) j2_score_string);
 
