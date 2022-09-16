@@ -1,5 +1,6 @@
 package com.example.xoxo.morpion;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -87,12 +88,12 @@ public class MatriceView extends View {
         if (!aona_aa && tapitra){
             System.out.println("TAPITRA AAA, MATCH NUL");
         }
-        /* REDIRECTION VERS WIN
+        /* REDIRECTION VERS WIN */
         else if(aona_aa){
-            Intent intent = new Intent(new MainActivity(), WinActivity.class);
-            startActivity(intent);
+            Intent intent = new Intent(MainActivity.mainA, WinActivity.class);
+            MainActivity.mainA.startActivity(intent);
+
         }
-         */
 
 
         // stroke

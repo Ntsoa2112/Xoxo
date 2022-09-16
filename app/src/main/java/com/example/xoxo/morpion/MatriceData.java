@@ -7,6 +7,13 @@ import com.example.xoxo.WelcomeActivity;
 import com.example.xoxo.WinActivity;
 
 public class MatriceData {
+    private static boolean isWin = false;
+    private static int winner;
+
+    public static int getWinner() {
+        return winner;
+    }
+
     private int dimension;
     private Integer[][] listData;
     // private  Integer[][] winningCombinations;
@@ -14,6 +21,10 @@ public class MatriceData {
     public MatriceData(int dimension){
         this.dimension = dimension;
         this.listData = new Integer[dimension][dimension];
+    }
+
+    public static boolean isIsWin() {
+        return isWin;
     }
 
     public boolean checkWinner()
@@ -28,6 +39,8 @@ public class MatriceData {
                 // REDIRECTION VERS WIN
                 //Intent intent = new Intent(MainActivity.this, WinActivity.class);
                 //startActivity(intent);
+                MatriceData.isWin = true;
+                MatriceData.winner = winner;
                 System.out.println("NARESY IZY EEE: " + String.valueOf(winner ));
                 return true;
             }
