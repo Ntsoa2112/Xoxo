@@ -88,8 +88,13 @@ public class MatriceView extends View {
         if (!aona_aa && tapitra){
             System.out.println("TAPITRA AAA, MATCH NUL");
         }
-        /* REDIRECTION VERS WIN */
+        // REDIRECTION VERS WIN
         else if(aona_aa){
+            if(MatriceData.getWinner() == 0){
+                MainActivity.j1.win();
+            }else{
+                MainActivity.j2.win();
+            }
             Intent intent = new Intent(MainActivity.mainA, WinActivity.class);
             MainActivity.mainA.startActivity(intent);
 
