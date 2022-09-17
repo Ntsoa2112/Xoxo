@@ -44,9 +44,9 @@ public class MatriceView extends View {
         int abs = (int) width / (MatriceView.dim);
         int dim = MatriceView.dim;
 
-        // FANTARINA HOE TAPITRA NY LALAO
-        // REHEFA TSS CASE LIBRE TSONY
-        boolean tapitra = true;
+        // Vérifier si la partie est terminé
+        // Quand il n'y a plus de case libre
+        boolean finParti = true;
 
         for (int x = 0; x < dim; x++) {
             for (int y = 0; y < dim; y++) {
@@ -80,17 +80,17 @@ public class MatriceView extends View {
                     }
                 }
                 else
-                    tapitra = false;
+                    finParti = false;
             }
         }
 
-        boolean aona_aa = dataMatrice.checkWinner();
+        boolean gagnant = dataMatrice.checkWinner();
 
-        if (!aona_aa && tapitra){
-            System.out.println("TAPITRA AAA, MATCH NUL");
+        if (!gagnant && finParti){
+            System.out.println("Fin de la partie: MATCH NUL");
         }
         // REDIRECTION VERS WIN
-        else if(aona_aa){
+        else if(gagnant){
             if(MatriceData.getWinner() == 0){
                 MainActivity.j1.win();
             }else{
@@ -100,14 +100,6 @@ public class MatriceView extends View {
             MainActivity.mainA.startActivity(intent);
 
         }
-
-
-        // stroke
-        /*
-        strokePaint.setStyle(Paint.Style.STROKE);
-        strokePaint.setColor(Color.BLACK);
-        strokePaint.setStrokeWidth(10);
-        */
     }
 
 

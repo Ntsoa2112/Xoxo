@@ -33,15 +33,9 @@ public class MatriceData {
 
             int winner =  verify(i) ;
             if (winner != -1) {
-            /*
-                ATO DOLY NY ACTION atao satria kobo hoe naresy izy
-             */
-                // REDIRECTION VERS WIN
-                //Intent intent = new Intent(MainActivity.this, WinActivity.class);
-                //startActivity(intent);
                 MatriceData.isWin = true;
                 MatriceData.winner = winner;
-                System.out.println("NARESY IZY EEE: " + String.valueOf(winner ));
+                System.out.println("Victoire : " + String.valueOf(winner ));
                 return true;
             }
         }
